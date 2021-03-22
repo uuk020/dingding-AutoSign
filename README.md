@@ -5,13 +5,14 @@
 ### 使用说明
 1. 需要 go 环境
 2. 需要安卓 adb 驱动
-3. 将temp_config.json 改名为 config.json
-4. 需要定时执行的话, 可以用windows定时任务来执行execute.bat
+3. 一台安卓手机连接电脑   
+4. 将temp_config.json 改名为 config.json
+5. 需要定时执行的话, 可以用windows定时任务来执行execute.bat
 
 ### 配置须知
 ```text
 {
-// 锁屏配置 
+  // 锁屏配置 
   "lock": {
     "require": true, // 是否有锁屏, true为有
     "password": "****", // 锁屏密码
