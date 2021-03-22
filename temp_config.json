@@ -1,0 +1,40 @@
+{
+  "lock": {
+    "require": true,
+    "password": "****",
+    "coordinate": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "start_dingding": {
+    "require": true,
+    "coordinate": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "work_platform": {
+    "coordinate": {
+      "x": 553,
+      "y": 1703
+    }
+  },
+  "sign": {
+    "coordinate": {
+      "x": 0,
+      "y": 0
+    },
+    "click": {
+      "x": 0,
+      "y": 0
+    },
+    "photo": {
+      "require": false,
+      "coordinate": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+}
