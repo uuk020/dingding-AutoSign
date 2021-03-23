@@ -1,1 +1,1 @@
-go run ./main.go ./adb.go
+go run ./main.go
