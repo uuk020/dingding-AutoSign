@@ -124,7 +124,7 @@ func main() {
 	// }
 
 	// 读取 config 配置
-	jsonFile, err := os.Open("C:\\Users\\Null\\Desktop\\DingAutoSign-master\\config.json")
+	jsonFile, err := os.Open("config.json")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
