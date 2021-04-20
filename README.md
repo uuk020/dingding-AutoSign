@@ -1,13 +1,16 @@
 <h1 align="center"> DingAutoSign </h1>
 
-<p align="center">通过adb来实现自动打卡, 仅限于代码学习与交流</p>
+<p align="center">通过 adb 来实现自动打卡</p>
+
+<p align="center"><b>仅用于学习和测试，作者本人并不对其负责，请于运行测试完成后自行删除，请勿滥用！</b></p>
+
 
 ### 使用说明
-1. 需要 go 环境
-2. 需要安卓 adb 驱动
-3. 一台安卓手机连接电脑   
-4. 将temp_config.json 改名为 config.json
-5. 需要定时执行的话, 可以用windows定时任务来执行execute.bat
+1. Windows操作系统和 go 环境
+2. 需要安卓 adb 驱动，并且启动 ```adb start-server```
+3. 一台安卓手机连接电脑，开启 usb 调试功能。查看是否有连接上命令 ``` adb devices ```
+4. 将 temp_config.json 改名为 config.json
+5. 需要定时执行的话, 可以用 windows 定时任务来执行 execute.bat
 
 ### 配置须知
 ```text
