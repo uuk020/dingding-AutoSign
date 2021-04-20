@@ -8,8 +8,8 @@
 ### 使用说明
 1. Windows操作系统和 go 环境
 2. 需要安卓 adb 驱动，并且启动 ```adb start-server```
-3. 一台安卓手机连接电脑，开启 usb 调试功能。查看是否有连接上命令 ``` adb devices ```
-4. 将 temp_config.json 改名为 config.json
+3. 一台安卓手机连接电脑，需要开启开发者模式和 usb 调试功能。查看是否有连接上命令 ``` adb devices ```
+4. 将 temp_config.json 改名为 config.json, 获取坐标则在***开发者选项/指针位置***
 5. 需要定时执行的话, 可以用 windows 定时任务来执行 execute.bat
 
 ### 配置须知
