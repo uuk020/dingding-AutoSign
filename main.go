@@ -60,6 +60,9 @@ type Sign struct {
 // 	return validDevice.MatchString(s)
 // }
 
+/**
+ * 是否熄屏
+ */
 func isPowerOff() bool {
 	flag := false
 	MyCmd := exec.Command("cmd.exe", "/c", "adb shell dumpsys power | findstr Display")
@@ -74,6 +77,9 @@ func isPowerOff() bool {
 	return flag
 }
 
+/**
+ * 是否锁屏
+ */
 func isLock() bool {
 	flag := true
 	MyCmd := exec.Command("cmd.exe", "/c", "adb shell dumpsys window policy | findstr isStatusBarKeyguard")
@@ -88,26 +94,50 @@ func isLock() bool {
 	return flag
 }
 
+/**
+ * adb 模拟点击
+ */
 func AdbShellInputTap(x, y int) {
 	x2 := strconv.Itoa(x)
 	y2 := strconv.Itoa(y)
-	exec.Command("adb", "shell", "input", "tap", x2, y2).Run()
+	commandErr := exec.Command("adb", "shell", "input", "tap", x2, y2).Run()
+	if commandErr != nil {
+		log.Fatal(commandErr)
+	}
 }
 
+/**
+ * adb 模拟滑动
+ */
 func AdbShellInputSwipe(x1, y1, x2, y2 int) {
 	xx1 := strconv.Itoa(x1)
 	yy1 := strconv.Itoa(y1)
 	xx2 := strconv.Itoa(x2)
 	yy2 := strconv.Itoa(y2)
-	exec.Command("adb", "shell", "input", "swipe", xx1, yy1, xx2, yy2).Run()
+	commandErr := exec.Command("adb", "shell", "input", "swipe", xx1, yy1, xx2, yy2).Run()
+	if commandErr != nil {
+		log.Fatal(commandErr)
+	}
 }
 
+/**
+ * adb 模拟事件
+ */
 func AdbShellInputKeyEvent(s string) {
-	exec.Command("adb", "shell", "input", "keyevent", s).Run()
+	commandErr := exec.Command("adb", "shell", "input", "keyevent", s).Run()
+	if commandErr != nil {
+		log.Fatal(commandErr)
+	}
 }
 
+/**
+ * adb 模拟输入文本
+ */
 func AdbShellInputText(s string) {
-	exec.Command("adb", "shell", "input", "text", s).Run()
+	commandErr := exec.Command("adb", "shell", "input", "text", s).Run()
+	if commandErr != nil {
+		log.Fatal(commandErr)
+	}
 }
 
 func main() {
@@ -124,14 +154,16 @@ func main() {
 	// }
 
 	// 读取 config 配置
-	jsonFile, err := os.Open("config.json")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+	jsonFile, openErr := os.Open("config.json")
+	if openErr != nil {
+		log.Fatal(openErr)
 	}
 	defer jsonFile.Close()
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+	byteValue, readErr := ioutil.ReadAll(jsonFile)
+	if readErr != nil {
+		log.Fatal(readErr)
+	}
 
 	var config Config
 	json.Unmarshal([]byte(byteValue), &config)
